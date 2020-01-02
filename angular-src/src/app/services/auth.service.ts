@@ -16,12 +16,12 @@ export class AuthService {
 
   registerUser(user): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register', user, { headers: headers });
+    return this.http.post('users/register', user, { headers: headers });
   }
 
   authenticateUser(user): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers });
+    return this.http.post('users/authenticate', user, { headers: headers });
   }
 
   getProfile(): Observable<any> {
@@ -30,7 +30,7 @@ export class AuthService {
       'Authorization': this.authToken,
       'Content-Type': 'application/json'
     });
-    return this.http.get('http://localhost:3000/users/profile', { headers: headers });
+    return this.http.get('users/profile', { headers: headers });
   }
 
   storeUserData(token, user) {
